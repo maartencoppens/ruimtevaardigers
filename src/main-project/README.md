@@ -284,6 +284,6 @@ If you want, I can also generate:
 
 # .env.example
 
-DATABASE_URL="file:./dev.db"
-NEXTAUTH_SECRET="v8xtzwaG/RGpXR1tQzlYcrxJ0NpCBciNwgxfpBQoggVrjQGCxVsOkMl1EH3SN6jd"
+DATABASE_URL=
+NEXTAUTH_SECRET=
 NEXTAUTH_URL="http://localhost:3000"
