@@ -211,7 +211,7 @@ function DisplayPage() {
               className={`grid ${gridLayout} gap-xs display-container h-full overflow-visible transition-all duration-500`}
             >
               <div
-                className={`relative min-w-0 w-full overflow-hidden transition-opacity duration-300 ${
+                className={`relative min-w-0 w-full transition-opacity duration-300 ${
                   showPlanetOverlay || currentScreen === "flag-form"
                     ? "opacity-0 pointer-events-none"
                     : "opacity-100"
@@ -308,13 +308,13 @@ function DisplayPage() {
 
             {showPlanetOverlay && (
               <div className=" absolute inset-0 z-20 flex flex-col items-center justify-between pb-lg pt-20 gap-md">
-                <h1 className=" text-text-secondary text-subtitle-primary font-heading text-center leading-8">
+                <h2 className=" text-light-blue text-subtitle-primary font-heading text-center leading-8">
                   Je hebt een planeet gevonden!
-                </h1>
-                <div className="flex flex-col justify-center items-center gap-lg">
-                  <h2 className="text-text-secondary text-title-primary font-heading text-center">
+                </h2>
+                <div className="flex flex-col justify-center items-center gap-xl">
+                  <h1 className="title-gradient text-title-primary font-heading text-center">
                     {planet?.planeetnaam}
-                  </h2>
+                  </h1>
                   <Button onClick={() => setShowPlanetOverlay(false)}>
                     <p className="text-title-secondary">Ontdek</p>
                   </Button>

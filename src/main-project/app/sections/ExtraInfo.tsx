@@ -9,7 +9,7 @@ type ExtraInfoProps = {
 
 const ExtraInfo = ({ planet }: ExtraInfoProps) => {
   return (
-    <div className="h-full flex items-center justify-between w-full">
+    <div className="h-full flex items-center justify-between w-full p-xs">
       <Card className="w-full p-4 flex flex-col gap-xs relative text-light-blue">
         <h2 className="text-title-primary font-bold title-gradient text-center border-b-4 border-border-tertiary pb-2">
           Extra Info

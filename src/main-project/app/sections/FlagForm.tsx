@@ -76,7 +76,7 @@ const FlagForm = ({
   }, [badWordsFilter, initials, setInitials]);
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center p-xs">
       <Card className="relative w-full p-3 py-6 flex flex-col">
         <h2 className="text-title-primary font-bold title-gradient text-center border-b-2 border-border-tertiary pb-1">
           PLAATS JE VLAG
