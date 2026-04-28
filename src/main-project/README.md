@@ -281,3 +281,9 @@ If you want, I can also generate:
 - A concise README variant (shorter for public repos).
 - A Dutch version.
 - API examples with `curl` commands for each endpoint.
+
+# .env.example
+
+DATABASE_URL="file:./dev.db"
+NEXTAUTH_SECRET="v8xtzwaG/RGpXR1tQzlYcrxJ0NpCBciNwgxfpBQoggVrjQGCxVsOkMl1EH3SN6jd"
+NEXTAUTH_URL="http://localhost:3000"
