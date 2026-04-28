@@ -282,8 +282,14 @@ If you want, I can also generate:
 - A Dutch version.
 - API examples with `curl` commands for each endpoint.
 
-# .env.example
+# Setup
 
+Voeg env toe (secrets staan op notion):
 DATABASE_URL=
 NEXTAUTH_SECRET=
 NEXTAUTH_URL="http://localhost:3000"
+
+Doe deze commands:
+
+- npx prisma generate
+- npx prisma db push
