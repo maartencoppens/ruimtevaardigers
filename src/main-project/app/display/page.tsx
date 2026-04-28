@@ -70,76 +70,85 @@ function DisplayPage() {
 
   //websocket to listen for zoom events from the main page
   useEffect(() => {
-    const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-    const ws = new WebSocket(`${protocol}://${window.location.host}/api/ws`);
+    let retryTimeout: ReturnType<typeof setTimeout>;
+    let ws: WebSocket;
 
-    ws.onmessage = async (event) => {
-      try {
-        console.log("[ws] raw event data:", event.data);
+    const connect = () => {
+      const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+      ws = new WebSocket(`${protocol}://${window.location.host}/api/ws`);
 
-        const raw =
-          typeof event.data === "string"
-            ? event.data
-            : event.data instanceof Blob
-              ? await event.data.text()
-              : new TextDecoder().decode(event.data);
+      ws.onmessage = async (event) => {
+        try {
+          console.log("[ws] raw event data:", event.data);
 
-        console.log("[ws] decoded raw payload:", raw);
+          const raw =
+            typeof event.data === "string"
+              ? event.data
+              : event.data instanceof Blob
+                ? await event.data.text()
+                : new TextDecoder().decode(event.data);
 
-        const payload = JSON.parse(raw) as {
-          type?: string;
-          isZoomedIn?: boolean | number | string;
-          planetId?: string | number | null;
-        };
+          console.log("[ws] decoded raw payload:", raw);
 
-        console.log("[ws] parsed payload:", payload);
+          const payload = JSON.parse(raw) as {
+            type?: string;
+            isZoomedIn?: boolean | number | string;
+            planetId?: string | number | null;
+          };
 
-        if (payload.type === "flags-updated") {
-          return;
-        }
+          console.log("[ws] parsed payload:", payload);
 
-        const isZoomedIn =
-          payload.isZoomedIn === true || Number(payload.isZoomedIn) === 1;
-        const nextPlanetId =
-          payload.planetId === null || payload.planetId === undefined
-            ? null
-            : Number(payload.planetId) + 1;
-
-        console.log("[ws] mapped values:", {
-          incomingPlanetId: payload.planetId,
-          mappedPlanetId: nextPlanetId,
-          isZoomedIn,
-        });
-
-        if (isZoomedIn) {
-          const nextPlanetIdString =
-            nextPlanetId !== null && Number.isFinite(nextPlanetId)
-              ? String(nextPlanetId)
-              : null;
-
-          setPlanetId(nextPlanetIdString);
-
-          setInitials("");
-          setPattern(PATTERNS[0]);
-          setError(null);
-          setShowPlanetOverlay(true);
-          if (nextPlanetIdString) {
-            useGLTF.preload(`/models/planet-${nextPlanetIdString}.glb`);
+          if (payload.type === "flags-updated") {
+            return;
           }
-          setState("planet-info");
-        } else {
-          // Reset to idle when zoomed out
-          setState("idle");
-          setPlanetId(null);
+
+          const isZoomedIn =
+            payload.isZoomedIn === true || Number(payload.isZoomedIn) === 1;
+          const nextPlanetId =
+            payload.planetId === null || payload.planetId === undefined
+              ? null
+              : Number(payload.planetId) + 1;
+
+          console.log("[ws] mapped values:", {
+            incomingPlanetId: payload.planetId,
+            mappedPlanetId: nextPlanetId,
+            isZoomedIn,
+          });
+
+          if (isZoomedIn) {
+            const nextPlanetIdString =
+              nextPlanetId !== null && Number.isFinite(nextPlanetId)
+                ? String(nextPlanetId)
+                : null;
+
+            setPlanetId(nextPlanetIdString);
+
+            setInitials("");
+            setPattern(PATTERNS[0]);
+            setError(null);
+            setShowPlanetOverlay(true);
+            if (nextPlanetIdString) {
+              useGLTF.preload(`/models/planet-${nextPlanetIdString}.glb`);
+            }
+            setState("planet-info");
+          } else {
+            // Reset to idle when zoomed out
+            setState("idle");
+            setPlanetId(null);
+          }
+        } catch {
+          console.error("Invalid WS message", event.data);
         }
-      } catch {
-        console.error("Invalid WS message", event.data);
-      }
+      };
+
+      ws.onerror = () => {
+        console.error("WebSocket error");
+        retryTimeout = setTimeout(connect, 1000);
+      };
+
+      return () => ws.close();
     };
-
-    ws.onerror = () => console.error("WebSocket error");
-
-    return () => ws.close();
+    connect();
   }, []);
 
   //submit flag to API
