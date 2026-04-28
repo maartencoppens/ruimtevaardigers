@@ -20,7 +20,7 @@ const LeftInfoColumn = ({
   style,
 }: LeftColumnInfoProps) => {
   return (
-    <div className="flex flex-col justify-between h-full w-full min-w-0">
+    <div className="flex flex-col justify-between h-full w-full min-w-0 p-xs pr-0">
       <div className="flex flex-col gap-lg">
         <Card
           glassPosition="left"

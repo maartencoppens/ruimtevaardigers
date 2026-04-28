@@ -28,7 +28,7 @@ const MiddleColumn = ({
 
   return (
     <>
-      <div className="h-full min-w-0 flex flex-col justify-between w-full relative overflow-visible">
+      <div className="min-w-0 flex flex-col justify-between w-full relative overflow-visible h-270 py-xs">
         {currentScreen === "extra-info" && (
           <button
             type="button"
@@ -121,7 +121,12 @@ const MiddleColumn = ({
             radius="lg"
           >
             <div className="flex h-16 w-16 items-center justify-center">
-              <EarthFull />
+              <Image
+                src="/earthFull.svg"
+                alt="Earth icon"
+                width={64}
+                height={64}
+              />
             </div>
             <div className="w-0.5 h-[62.5px] bg-border-gradient" />
             <div className="flex flex-col items-center justify-center text-center">
@@ -139,7 +144,12 @@ const MiddleColumn = ({
             </div>
             <div className="w-0.5 h-[62.5px] bg-border-gradient" />
             <div className="flex h-16 w-16 items-center justify-center">
-              <PlanetGradient />
+              <Image
+                src="/planet-gradient.svg"
+                alt="Planet gradient"
+                width={64}
+                height={64}
+              />
             </div>
           </Card>
         </div>

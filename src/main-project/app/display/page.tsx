@@ -39,10 +39,10 @@ function DisplayPage() {
 
   const gridLayout =
     currentScreen === "info"
-      ? "grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)]"
+      ? "grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]"
       : currentScreen === "extra-info"
-        ? "grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,0fr)]"
-        : "grid-cols-[minmax(0,0fr)_minmax(0,1fr)_minmax(0,1.2fr)]";
+        ? "grid-cols-[minmax(0,1.2fr)_auto_minmax(0,0fr)]"
+        : "grid-cols-[minmax(0,0fr)_auto_minmax(0,1.2fr)]";
 
   // Fetch planet info when planetId changes
   useEffect(() => {
@@ -197,12 +197,12 @@ function DisplayPage() {
 
         {/* PLANET INFO */}
         {state === "planet-info" && (
-          <div className="relative h-svh overflow-hidden">
+          <div className="relative h-svh overflow-visible">
             <div
               className={`grid ${gridLayout} gap-xs display-container h-full overflow-visible transition-all duration-500`}
             >
               <div
-                className={`relative min-w-0 overflow-hidden transition-opacity duration-300 ${
+                className={`relative min-w-0 w-full overflow-hidden transition-opacity duration-300 ${
                   showPlanetOverlay || currentScreen === "flag-form"
                     ? "opacity-0 pointer-events-none"
                     : "opacity-100"
@@ -248,7 +248,7 @@ function DisplayPage() {
                 </div>
               </div>
 
-              <div className="min-w-0 overflow-hidden">
+              <div className="min-w-0 w-fit overflow-visible">
                 <MiddleColumn
                   planet={planet}
                   currentScreen={currentScreen}
@@ -258,7 +258,7 @@ function DisplayPage() {
               </div>
 
               <div
-                className={`relative min-w-0 overflow-hidden transition-opacity duration-300 ${
+                className={`relative min-w-0 w-full overflow-visible transition-opacity duration-300 ${
                   showPlanetOverlay || currentScreen === "extra-info"
                     ? "opacity-0 pointer-events-none"
                     : "opacity-100"

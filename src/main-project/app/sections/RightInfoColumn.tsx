@@ -19,7 +19,7 @@ const RightInfoColumn = ({ planet, onShowFlagForm }: RightInfoColumnProps) => {
 
   return (
     <>
-      <div className="h-full w-full min-w-0 flex flex-col justify-between overflow-visible">
+      <div className="h-full w-full min-w-0 flex flex-col justify-between overflow-visible p-xs pl-0">
         <div className="flex flex-col gap-xs">
           <div className="w-full min-w-0 flex flex-col gap-xl">
             <Card
