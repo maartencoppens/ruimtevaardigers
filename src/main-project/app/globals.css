@@ -1,0 +1,282 @@
+@import "tailwindcss";
+
+:root {
+  --font-heading: var(--font-chillax), sans-serif;
+  --light-purple: #b0a0f9;
+  --title-gradient: linear-gradient(to bottom, #e3e9f6 20%, #896fef 60%);
+  --light-blue: #abe8ff;
+  --blue: #98a7d3;
+  --white: #dbdbdb;
+  --grey-to-navy-gradient: linear-gradient(180deg, #cacaca 0%, #0c122a 100%);
+  --light-purple: #9f8ef4;
+  --dark-purple: #7c5ef5;
+
+  --purple-gradient: linear-gradient(
+    to right,
+    rgb(124 94 245 / 20%) 0%,
+    rgb(159 142 244 / 20%) 100%
+  );
+  --blue-gradient: linear-gradient(
+    to right,
+    rgba(48, 58, 83, 0.2),
+    rgba(107, 129, 185, 0.2)
+  );
+  --white-transparent: #dbdbdb20;
+  --grey-transparent: #cacaca20;
+
+  --slider-gradient-primary: linear-gradient(
+    to right,
+    #e14d4d 0%,
+    #5fc88f 45%,
+    #5fc88f 55%,
+    #dafdfd 100%
+  );
+  --slider-gradient-secondary: linear-gradient(
+    to right,
+    #e14d4d 0%,
+    #e3ac55 35%,
+    #5fc88f 50%,
+    #e3ac55 65%,
+    #e14d4d 100%
+  );
+
+  --purple-gradient-secondary: linear-gradient(
+    to right,
+    #cacaca/20 0%,
+    #7c5ef5/20 100%
+  );
+
+  --planet-glow-color: rgb(171 232 255 / 0.5);
+  --planet-glow-blur: 90px;
+  --title-glow-color: rgb(176 160 249 / 0.55);
+  --title-shadow-color: rgb(28 20 73 / 0.7);
+  --title-stroke-color: rgb(255 255 255 / 0.2);
+  --space-10: 0.625rem;
+  --space-16: 1rem;
+  --space-20: 1.25rem;
+  --space-24: 1.5rem;
+  --space-26: 1.625rem;
+  --space-28: 1.75rem;
+  --space-30: 1.875rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-44: 2.75rem;
+  --space-48: 3rem;
+  --space-50: 3.125rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+  --space-96: 6rem;
+}
+
+@theme inline {
+  --color-light-purple: var(--light-purple);
+  --color-light-blue: var(--light-blue);
+  --color-blue: var(--blue);
+  --color-purple: var(--dark-purple);
+  --color-light-purple: var(--light-purple);
+  --color-grey-transparent: var(--grey-transparent);
+  --color-title-gradient: var(--title-gradient);
+  --color-border-gradient: var(--grey-to-navy-gradient);
+  --color-card-gradient-primary: var(--blue-gradient);
+  --color-border-gradient-secondary: var(--purple-gradient-secondary);
+
+  --text-body-sm: var(--space-20);
+  --text-body-sm--line-height: auto;
+  --text-body-md: var(--space-26);
+  --text-body-md--line-height: auto;
+  --text-body-lg: var(--space-32);
+  --text-body-lg--line-height: 120%;
+  --text-body-xl: var(--space-44);
+  --text-body-xl--line-height: 120%;
+  --text-subtitle-primary: var(--space-48);
+  --text-subtitle-primary--line-height: 120%;
+  --text-subtitle-secondary: var(--space-26);
+  --text-subtitle-secondary--line-height: 120%;
+  --text-subtitle-tertiary: var(--space-24);
+  --text-subtitle-tertiary--line-height: 120%;
+  --text-title-primary: var(--space-80);
+  --text-title-primary--line-height: 100%;
+
+  --spacing-4xs: var(--space-10);
+  --spacing-3xs: var(--space-16);
+  --spacing-2xs: var(--space-20);
+  --spacing-xs: var(--space-24);
+  --spacing-sm: var(--space-28);
+  --spacing-md: var(--space-30);
+  --spacing-lg: var(--space-32);
+  --spacing-xl: var(--space-40);
+  --spacing-2xl: var(--space-48);
+  --spacing-3xl: var(--space-50);
+  --spacing-4xl: var(--space-64);
+  --spacing-5xl: var(--space-96);
+}
+
+body {
+  background: black;
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .font-subheading {
+    font-family: var(--font-heading);
+    font-weight: 400;
+  }
+
+  .slider-gradient-primary {
+    background: var(--slider-gradient-primary);
+  }
+
+  .slider-gradient-secondary {
+    background: var(--slider-gradient-secondary);
+  }
+
+  .bg-border-gradient {
+    background: var(--grey-to-navy-gradient);
+  }
+
+  .title-gradient {
+    background: var(--color-title-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .title-effect {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .title-effect > span {
+    grid-area: 1 / 1;
+  }
+
+  .title-effect-glow {
+    color: var(--title-glow-color);
+    filter: blur(20px);
+    opacity: 0.9;
+  }
+
+  .title-effect-shadow {
+    color: var(--title-shadow-color);
+    transform: translate(3px, 5px);
+    opacity: 0.8;
+  }
+
+  .title-effect-main {
+    position: relative;
+    -webkit-text-stroke: 1px var(--title-stroke-color);
+  }
+
+  .display-container {
+    box-sizing: border-box;
+    padding: 1.2rem 1rem;
+  }
+
+  .video-bg-wrapper {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+  }
+  .text-danger {
+    color: #ff4d4d;
+    font-weight: bold;
+  }
+}
+
+/* Liquid Glass Card */
+.liquid-glass-card {
+  --glass-gradient-direction: to bottom;
+  --glass-gradient-start: rgba(107, 129, 185, 0.2);
+  --glass-gradient-end: rgba(48, 58, 83, 0.2);
+
+  position: relative;
+  overflow: hidden;
+  outline: 4px solid rgba(160, 140, 220, 0.35);
+  box-shadow:
+    0 6px 6px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.liquid-glass-card[data-glass-gradient="purple"] {
+  --glass-gradient-start: rgb(159 142 244 / 20%);
+  --glass-gradient-end: rgb(124 94 245 / 20%);
+}
+
+.liquid-glass-card[data-glass-position="left"] {
+  --glass-gradient-direction: to left;
+}
+
+.liquid-glass-card[data-glass-position="right"] {
+  --glass-gradient-direction: to right;
+}
+
+.liquid-glass-card[data-glass-position="bottom"] {
+  --glass-gradient-direction: to bottom;
+}
+
+.liquidGlass-effect {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+
+  backdrop-filter: blur(3px);
+  filter: url(/svg/filter.svg#glass-distortion);
+  -webkit-filter: url(/svg/filter.svg#glass-distortion);
+  overflow: hidden;
+}
+
+.liquidGlass-tint {
+  z-index: -2;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--glass-gradient-direction),
+    var(--glass-gradient-start),
+    var(--glass-gradient-end)
+  );
+  opacity: 0.7;
+}
+
+.liquidGlass-shine {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 2px 2px 1px 0 rgba(255, 255, 255, 0.12),
+    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.08);
+}
