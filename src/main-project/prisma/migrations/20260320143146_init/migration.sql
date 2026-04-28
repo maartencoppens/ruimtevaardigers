@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Flag" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "name" TEXT NOT NULL,
+    "initials" TEXT NOT NULL,
+    "pattern" TEXT NOT NULL
+);
