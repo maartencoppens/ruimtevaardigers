@@ -107,7 +107,7 @@ function DisplayPage() {
           const nextPlanetId =
             payload.planetId === null || payload.planetId === undefined
               ? null
-              : Number(payload.planetId) + 1;
+              : Number(payload.planetId);
 
           console.log("[ws] mapped values:", {
             incomingPlanetId: payload.planetId,
