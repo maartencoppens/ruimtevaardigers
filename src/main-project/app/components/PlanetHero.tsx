@@ -56,7 +56,7 @@ const PlanetHero = ({ planetID }: PlanetHeroProps) => {
       onPointerUp={handlePointerUp}
       onPointerOut={handlePointerUp}
     >
-      <primitive object={clonedScene} scale={1.8} />
+      <primitive object={clonedScene} scale={2.5} />
     </group>
   );
 };
