@@ -98,7 +98,7 @@ const Slider = ({
                 className={`absolute inset-0 rounded-md slider-gradient-${variant} blur-[1.5px]`}
               />
               {/* image bovenop, niet geblurd */}
-              <div className="relative h-full w-full">
+              <div className="relative h-full w-full px-2">
                 <Image
                   src={markerIcon}
                   alt="Slider icon"
@@ -111,7 +111,7 @@ const Slider = ({
             </div>
             {label && (
               <span
-                className="absolute top-full mt-2 -translate-x-1/2 whitespace-nowrap text-body-md text-blue"
+                className="absolute top-full mt-2 -translate-x-1/2 whitespace-nowrap text-body-md text-blue px-2"
                 style={{ left: `${percentage}%` }}
               >
                 {label}

@@ -15,7 +15,14 @@ import Button from "../components/Button";
 import { useGLTF } from "@react-three/drei";
 import { plane } from "three/examples/jsm/Addons.js";
 
-const PATTERNS = ["#9b51e0", "#2f3c97"];
+const PATTERNS = [
+  "#9b51e0", // Purple
+  "#2f3c97", // Dark blue
+  "#00d4ff", // Cyan (cosmic)
+  "#ff10f0", // Magenta (nebula)
+  "#ffd700", // Gold (star)
+  "#00ff88", // Neon green (alien)
+];
 
 type State = "idle" | "planet-info";
 type currentPlanetScreen = "info" | "flag-form" | "extra-info";
@@ -208,7 +215,7 @@ function DisplayPage() {
         {state === "planet-info" && (
           <div className="relative h-svh overflow-visible">
             <div
-              className={`grid ${gridLayout} gap-xs display-container h-full overflow-visible transition-all duration-500`}
+              className={`grid ${gridLayout} gap-xs display-container h-full overflow-hidden transition-all duration-500`}
             >
               <div
                 className={`relative min-w-0 w-full transition-opacity duration-300 ${

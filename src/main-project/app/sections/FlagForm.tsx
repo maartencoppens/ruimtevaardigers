@@ -94,40 +94,44 @@ const FlagForm = ({
               >
                 Jouw initialen
               </label>
-              <Card>
-                <input
-                  id="initials"
-                  type="text"
-                  value={initials}
-                  onChange={handleInitialsChange}
-                  placeholder="XDD"
-                  maxLength={3}
-                  autoComplete="off"
-                  className="w-full bg-transparent text-center text-4xl font-bold uppercase tracking-[0.35em] text-text-secondary caret-text-secondary outline-none placeholder:text-white/40"
-                />
-              </Card>
+              <div className="w-full h-auto flex items-center justify-center">
+                <Card className="max-w-80">
+                  <input
+                    id="initials"
+                    type="text"
+                    value={initials}
+                    onChange={handleInitialsChange}
+                    placeholder="XDD"
+                    maxLength={3}
+                    autoComplete="off"
+                    className="w-full bg-transparent text-center text-4xl font-bold uppercase tracking-[0.35em] text-text-secondary caret-text-secondary outline-none placeholder:text-white/40"
+                  />
+                </Card>
+              </div>
             </div>
 
             <div>
               <p className="mb-2 text-center text-subtitle-secondary text-text-secondary">
                 Kleur vlag
               </p>
-              <Card className="p-4">
-                <div className="flex flex-wrap justify-center gap-1">
-                  {patternArray.map((color) => (
-                    <button
-                      key={color}
-                      type="button"
-                      onClick={() => setPattern(color)}
-                      aria-label={`Kies kleur ${color}`}
-                      className={`h-10 w-10 transition ${pattern === color ? "ring-2 ring-white" : ""}`}
-                      style={{
-                        backgroundColor: color,
-                      }}
-                    />
-                  ))}
-                </div>
-              </Card>
+              <div className="w-full h-auto flex items-center justify-center">
+                <Card className="max-w-80">
+                  <div className="flex flex-wrap justify-center gap-1">
+                    {patternArray.map((color) => (
+                      <button
+                        key={color}
+                        type="button"
+                        onClick={() => setPattern(color)}
+                        aria-label={`Kies kleur ${color}`}
+                        className={`h-10 w-10 transition ${pattern === color ? "ring-2 ring-white" : ""}`}
+                        style={{
+                          backgroundColor: color,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </Card>
+              </div>
             </div>
             <div className="w-full h-3">
               {(initialsError || error) && (
@@ -147,11 +151,11 @@ const FlagForm = ({
             </div>
           </div>
 
-          <Card className="w-full">
+          <Card className="w-full max-w-100">
             <div className="relative flex min-h-72 w-full items-start justify-end overflow-hidden rounded-xl px-4 py-3">
               <div
                 aria-hidden="true"
-                className="absolute right-[1.05rem] top-5 z-10 h-50 w-61"
+                className="absolute right-[1.4rem] top-5 z-10 h-50 w-61"
                 style={{
                   backgroundColor: pattern,
                   maskImage: "url('/personalized-flag.svg')",
@@ -168,7 +172,7 @@ const FlagForm = ({
                 {previewInitials}
               </div>
               <img
-                src="/stam.svg"
+                src="/flagpole.png"
                 alt=""
                 aria-hidden="true"
                 className="relative z-30 ml-auto h-92 w-[1.1rem] object-fill"

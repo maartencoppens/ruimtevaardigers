@@ -60,17 +60,19 @@ const RightInfoColumn = ({ planet, onShowFlagForm }: RightInfoColumnProps) => {
               <div className="flex flex-col items-center gap-2xs w-full">
                 <div className="flex flex-col items-center justify-center gap-1">
                   <p className="uppercase text-body-lg text-light-blue">
-                    {planet?.levensduurSter} miljard jaar
+                    {planet?.leeftijdSter} miljard jaar
                   </p>
                   <p className="uppercase text-blue text-body-sm">
                     geschatte leeftijd
                   </p>
                 </div>
                 <Slider
-                  value={planet?.levensduurSter ?? 0}
+                  value={planet?.leeftijdSter ?? 0}
                   mode="arrow"
+                  min={0}
+                  max={10}
                   leftLabel="0"
-                  rightLabel="6.8"
+                  rightLabel="10"
                 />
               </div>
             </Card>
@@ -114,7 +116,7 @@ const RightInfoColumn = ({ planet, onShowFlagForm }: RightInfoColumnProps) => {
                 </div>
                 <div className="flex flex-col gap-1 w-full">
                   <div className="flex items-center gap-2xs">
-                    <p className="text-body-xl text-light-blue">
+                    <p className="text-body-label text-light-blue">
                       {planet?.temperatuurSter} °C
                     </p>
                   </div>

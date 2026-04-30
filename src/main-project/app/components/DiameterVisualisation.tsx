@@ -14,31 +14,37 @@ const DiameterVisualisation = ({ diameter }: DiameterVisualisationProps) => {
   const safeDiameter =
     Number.isFinite(parsedDiameter) && parsedDiameter > 0 ? parsedDiameter : 1;
 
-  const earthSize = 84;
-  const basePlanetSize = 140;
-  const planetSize = Math.min(basePlanetSize * safeDiameter, 260);
+  const baseSize = 80;
+  const planetBigger = safeDiameter >= 1;
+  const maxSize = 220;
+
+  const earthSize = planetBigger ? baseSize : baseSize / safeDiameter;
+  const planetSize = planetBigger ? baseSize * safeDiameter : baseSize;
+
+  const scale = Math.min(1, maxSize / Math.max(earthSize, planetSize));
+
+  const finalEarthSize = earthSize * scale;
+  const finalPlanetSize = planetSize * scale;
 
   return (
-    <div className="flex flex-col items-start gap-2 w-full h-full">
-      <div className="flex items-center">
+    <div className="flex items-center justify-center w-full h-full">
+      <div
+        className="relative flex items-center justify-center"
+        style={{ width: maxSize, height: maxSize }}
+      >
+        {/* Planeet cirkel */}
         <div
-          className={`relative flex h-65 w-65 items-center justify-center ${planetSize > earthSize && "z-10"}`}
-        >
-          <div
-            className="rounded-full bg-[#6F6DD8]/20"
-            style={{
-              width: `${planetSize}px`,
-              height: `${planetSize}px`,
-            }}
+          className={`absolute rounded-full ${planetBigger ? "z-10 bg-[#6F6DD8]/20" : "z-0 border-2 border-[#6F6DD8]/60 bg-[#6F6DD8]/10"}`}
+          style={{ width: finalPlanetSize, height: finalPlanetSize }}
+        />
+        {/* Aarde SVG */}
+        <div className={`absolute ${planetBigger ? "z-20" : "z-10"}`}>
+          <Image
+            src="/earthFull.svg"
+            alt="Earth"
+            width={finalEarthSize}
+            height={finalEarthSize}
           />
-          <div className="absolute flex items-center justify-center">
-            <Image
-              src="/earth.svg"
-              alt="Earth"
-              width={earthSize}
-              height={earthSize}
-            />
-          </div>
         </div>
       </div>
     </div>

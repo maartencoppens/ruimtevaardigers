@@ -59,7 +59,7 @@ const ExtraInfo = ({ planet }: ExtraInfoProps) => {
             </p>
           </div>
         </div>
-        <div className="max-w-60 aspect-square absolute bottom-2 right-2">
+        <div className="absolute bottom-2 right-2 aspect-square w-60">
           <QrCode nasaUrl={planet?.nasaUrl ?? undefined} />
         </div>
       </Card>

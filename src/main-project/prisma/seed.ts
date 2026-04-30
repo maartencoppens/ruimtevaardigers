@@ -10,7 +10,8 @@ const prisma = new PrismaClient({ adapter });
 const planeeten: Prisma.PlaneetCreateManyInput[] = [
   {
     planeetnaam: "Kepler-452 b",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/KOI-7016.01",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-452%20b",
     planeettype: Planeettype.SUPERAARDE,
     massaPlaneet: 5,
     diameterPlaneet: 1.6,
@@ -50,7 +51,8 @@ const planeeten: Prisma.PlaneetCreateManyInput[] = [
   },
   {
     planeetnaam: "GJ 667 C c",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/GJ%20667%20C",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/GJ%20667%20C%20c",
     planeettype: Planeettype.SUPERAARDE,
     massaPlaneet: 3.8,
     diameterPlaneet: 1.5,
@@ -70,7 +72,8 @@ const planeeten: Prisma.PlaneetCreateManyInput[] = [
   },
   {
     planeetnaam: "Kepler-186 e",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-186%20e",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-186%20e",
     planeettype: Planeettype.ROTSPLANEET,
     massaPlaneet: 2.5,
     diameterPlaneet: 1.3,
@@ -90,7 +93,8 @@ const planeeten: Prisma.PlaneetCreateManyInput[] = [
   },
   {
     planeetnaam: "Kepler-438 b",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-438%20b",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-438%20b",
     planeettype: Planeettype.ROTSPLANEET,
     massaPlaneet: 1.46,
     diameterPlaneet: 1.12,
@@ -130,7 +134,8 @@ const planeeten: Prisma.PlaneetCreateManyInput[] = [
   },
   {
     planeetnaam: "HIP 65426 b",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/HIP%2065426%20b",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/HIP%2065426%20b",
     planeettype: Planeettype.GASREUS,
     massaPlaneet: 9,
     diameterPlaneet: 1.5,
@@ -150,7 +155,8 @@ const planeeten: Prisma.PlaneetCreateManyInput[] = [
   },
   {
     planeetnaam: "55 Cancri e",
-    nasaUrl: "https://exoplanetarchive.ipac.caltech.edu/overview/55%20Cancri%20e",
+    nasaUrl:
+      "https://exoplanetarchive.ipac.caltech.edu/overview/55%20Cancri%20e",
     planeettype: Planeettype.SUPERAARDE,
     massaPlaneet: 8,
     diameterPlaneet: 1.9,
