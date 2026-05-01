@@ -13,7 +13,7 @@ const PlanetHero = ({ planetID }: PlanetHeroProps) => {
   const isDraggingRef = React.useRef(false);
   const lastPointerXRef = React.useRef(0);
   const swipeVelocityRef = React.useRef(0);
-  const modelPath: string = `/models/planet-${planetID ?? 0}.glb`;
+  const modelPath: string = `/models/planet-${planetID ?? 1}.glb`;
   const model = useGLTF(modelPath);
   const clonedScene = useMemo(() => {
     return SkeletonUtils.clone(model.scene);

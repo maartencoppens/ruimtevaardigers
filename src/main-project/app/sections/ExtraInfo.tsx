@@ -51,11 +51,11 @@ const ExtraInfo = ({ planet }: ExtraInfoProps) => {
             </p>
             <p className="text-body-primary">
               <span className="text-light-purple font-bold">Stermassa</span> ={" "}
-              {planet?.stermassa}
+              {planet?.stermassa} x de massa van onze zon
             </p>
             <p className="text-body-primary">
               <span className="text-light-purple font-bold">Stergrootte</span> ={" "}
-              {planet?.sterstraal}
+              {planet?.sterstraal} x de grootte van onze zon
             </p>
           </div>
         </div>

@@ -44,17 +44,18 @@ model Planeet {
 
   // Sterrenstelsel
   aantalPlanetenStelsel Int           @map("aantal_planeten_stelsel")
+  mogelijkBewoonbaar    Boolean       @default(false) @map("mogelijk_bewoonbaar")
 
   @@map("planeet")
 }
 
 enum Planeettype {
-  ROTSPLANEET
-  GASREUS
-  IJSREUS
-  DWERGPLANEET
-  SUPERAARDE
-  HEETJUPITER
+  Rotsplaneet
+  Gasreus
+  Ijsreus
+  Dwergplaneet
+  Superaarde
+  Heetjupiter
 
   @@map("planeettype")
 }
