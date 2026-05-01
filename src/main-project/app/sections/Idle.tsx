@@ -3,8 +3,9 @@ import React from "react";
 const Idle = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <h1 className=" w-1/2 text-text-secondary text-title-primary text-center">
-        Richt en zoom om een planeet te vinden
+      <h1 className=" w-2/3 text-text-secondary text-idle text-center">
+        Richt de <strong>telescoop</strong> en gebruik de{" "}
+        <strong>draaiknop</strong> om een planeet te ontdekken{" "}
       </h1>
     </div>
   );

@@ -20,7 +20,6 @@ const PATTERNS = [
   "#2f3c97", // Dark blue
   "#00d4ff", // Cyan (cosmic)
   "#ff10f0", // Magenta (nebula)
-  "#ffd700", // Gold (star)
   "#00ff88", // Neon green (alien)
 ];
 
@@ -121,6 +120,12 @@ function DisplayPage() {
             mappedPlanetId: nextPlanetId,
             isZoomedIn,
           });
+          if (nextPlanetId === 0) {
+            setState("idle");
+            setPlanetId(null);
+            setCurrentScreen("info");
+            return;
+          }
 
           if (isZoomedIn) {
             const nextPlanetIdString =
@@ -142,6 +147,7 @@ function DisplayPage() {
             // Reset to idle when zoomed out
             setState("idle");
             setPlanetId(null);
+            setCurrentScreen("info");
           }
         } catch {
           console.error("Invalid WS message", event.data);

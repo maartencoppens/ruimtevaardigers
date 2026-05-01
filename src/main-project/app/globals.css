@@ -99,6 +99,8 @@
   --text-subtitle-tertiary--line-height: 120%;
   --text-title-primary: var(--space-80);
   --text-title-primary--line-height: 100%;
+  --text-idle: var(--space-96);
+  --text-idle--line-height: 100%;
 
   --spacing-4xs: var(--space-10);
   --spacing-3xs: var(--space-16);

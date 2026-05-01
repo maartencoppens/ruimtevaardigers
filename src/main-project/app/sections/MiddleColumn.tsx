@@ -110,8 +110,11 @@ const MiddleColumn = ({
                 {planet?.planeetnaam}
               </span>
             </h1>
+
             <h2 className="font-heading text-body-lg text-purple uppercase leading-10">
-              Mogelijk Bewoonbaar
+              {planet?.mogelijkBewoonbaar
+                ? "Mogelijks Bewoonbaar"
+                : "Niet Bewoonbaar"}
             </h2>
           </div>
           <Card
